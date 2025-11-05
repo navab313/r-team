@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ Red Team Ops: منابع کلیدی امنیتی</title>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%); /* Deep dark gradient */
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05); /* Slightly transparent white for glass effect */
+            backdrop-filter: blur(10px); /* Glass blur effect */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            padding: 30px 40px;
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #e74c3c; /* Striking red */
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+            position: relative;
+        }
+        h1::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: #e74c3c;
+            margin: 15px auto 0;
+            box-shadow: 0 0 8px rgba(231, 76, 60, 0.7);
+        }
+
+        .book-item {
+            background: rgba(0, 0, 0, 0.3); /* Darker background for each book */
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            border-left: 5px solid #e74c3c; /* Red highlight on the left */
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .book-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+        }
+
+        .book-title {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #3498db; /* Blue for titles to stand out */
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .book-title i {
+            margin-left: 10px;
+            color: #e74c3c;
+            font-size: 1.2em;
+        }
+
+        .book-description {
+            margin: 15px 0 20px 0;
+            font-size: 1em;
+            color: #c0c0c0;
+            border-right: 2px solid rgba(231, 76, 60, 0.1);
+            padding-right: 10px;
+        }
+
+        .book-link a {
+            display: inline-flex; /* Use flex for icon and text */
+            align-items: center;
+            background-color: #e74c3c; /* Red button */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+        }
+        .book-link a:hover {
+            background-color: #c0392b; /* Darker red on hover */
+            transform: scale(1.05);
+        }
+        .book-link a i {
+            margin-left: 8px;
+        }
+
+        /* Background animation for a dynamic feel */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .background-animation::before,
+        .background-animation::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            filter: blur(50px);
+            animation: moveCircles 15s infinite ease-in-out alternate;
+        }
+        .background-animation::before {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #e74c3c, transparent 60%);
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
+        .background-animation::after {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #3498db, transparent 60%);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 5s;
+        }
+        @keyframes moveCircles {
+            0% { transform: translate(0, 0); }
+            50% { transform: translate(20px, 20px); }
+            100% { transform: translate(0, 0); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+                margin: 20px auto;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            .book-title {
+                font-size: 1.3em;
+            }
+            .book-item {
+                padding: 15px;
+            }
+            .book-link a {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-animation"></div>
+
+    <div class="container">
+        <h1><i class="fas fa-mask"></i> عملیات Red Team: منابع حیاتی <i class="fas fa-shield-alt"></i></h1>
+        
+        <div class="book-item">
+            <p class="book-title"><i class="fas fa-book-reader"></i> Gray Hat Hacking: The Ethical Hacker's Handbook</p>
+            <p class="book-description">
+                مرجع جامع برای هک اخلاقی که موضوعاتی مانند مهندسی معکوس، تحلیل بدافزار، اکسپلویت نویسی، و تکنیک‌های Exploitation را به صورت عمیق پوشش می‌دهد.
+            </p>
+            <p class="book-link">
+                <a href="https://skybooks.ir/products/Gray-Hat-Hacking" target="_blank" rel="noopener noreferrer">
+                    مشاهده کتاب <i class="fas fa-external-link-alt"></i>
+                </a>
+            </p>
+        </div>
+
+        <div class="book-item">
+            <p class="book-title"><i class="fas fa-book-reader"></i> The Hacker Playbook 3: Practical Guide to Penetration Testing</p>
+            <p class="book-description">
+                یک راهنمای سناریو محور و عملی برای اجرای تست نفوذ مدرن. تمرکز آن بر روی Playbookها یا همان مراحل گام به گام در طول یک عملیات نفوذ است.
+            </p>
+            <p class="book-link">
+                <a href="https://ebook2book.ir/product/the-hacker-playbook-3-practical-guide-to-penetration-testing" target="_blank" rel="noopener noreferrer">
+                    مشاهده کتاب <i class="fas fa-external-link-alt"></i>
+                </a>
+            </p>
+        </div>
+
+        <div class="book-item">
+            <p class="book-title"><i class="fas fa-book-reader"></i> RTFM: Red Team Field Manual V2</p>
+            <p class="book-description">
+                مرجع سریع دستورات (Cheat Sheet) ضروری برای تیم‌های Red Team است که دستورات لینوکس، ویندوز و ابزارهای امنیتی را برای استفاده سریع در محیط عملیاتی جمع‌آوری کرده است.
+            </p>
+            <p class="book-link">
+                <a href="https://skybooks.ir/products/RTFM-Red-Team-Field-Manual-v2" target="_blank" rel="noopener noreferrer">
+                    مشاهده کتاب <i class="fas fa-external-link-alt"></i>
+                </a>
+            </p>
+        </div>
+    </div>
+
+</body>
